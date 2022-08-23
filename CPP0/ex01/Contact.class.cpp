@@ -6,14 +6,12 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 16:30:34 by bschende          #+#    #+#             */
-/*   Updated: 2022/08/22 17:13:10 by bschende         ###   ########.fr       */
+/*   Updated: 2022/08/23 15:33:27 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Contact.class.hpp"
-
-using namespace std;
 
 Contact::Contact(void)
 {
@@ -23,21 +21,16 @@ Contact::Contact(void)
 
 void Contact::details(void)
 {
-	cout << "Enter first Name:";
-	cin >> fname;
-	cout << endl;
-	cout << "Enter last Name:";
-	cin >> lname;
-	cout << endl;
-	cout << "Enter Nickame:";
-	cin >> nname;
-	cout << endl;
-	cout << "Enter Phone number:";
-	cin >> phone;
-	cout << endl;
-	cout << "Enter darkest secret:";
-	cin >> dsecret;
-	cout << endl;
+	std::cout << "Enter first Name:" << std::endl;
+	std::cin >> fname;
+	std::cout << "Enter last Name:" << std::endl;
+	getline(std::cin, lname);
+	std::cout << "Enter Nickame:" << std::endl;
+	getline(std::cin, nname);
+	std::cout << "Enter Phone number:" << std::endl;
+	getline(std::cin, phone);
+	std::cout << "Enter darkest secret:" << std::endl;
+	getline(std::cin, dsecret);
 }
 
 Contact::~Contact(void)
