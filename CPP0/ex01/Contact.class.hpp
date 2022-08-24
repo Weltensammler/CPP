@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 10:15:42 by bschende          #+#    #+#             */
-/*   Updated: 2022/08/23 16:36:08 by bschende         ###   ########.fr       */
+/*   Updated: 2022/08/24 16:34:36 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include <string>
 
 class Contact {
+private:
+	std::string _name;
 public:
 	std::string	fname;
 	std::string	lname;
@@ -26,6 +28,7 @@ public:
 	Contact(void);
 	void details(void);
 	~Contact(void);
+	// void setName(std::string name); Use setter to set variables and move them to private, use getter to get variables from private and move them to phonebook
 };
 
 #endif

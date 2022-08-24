@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 10:35:52 by bschende          #+#    #+#             */
-/*   Updated: 2022/08/23 18:56:52 by bschende         ###   ########.fr       */
+/*   Updated: 2022/08/24 17:33:31 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,70 +14,46 @@
 #include "PhoneBook.class.hpp"
 #include "Contact.class.hpp"
 
-void	contactsearch(int index, PhoneBook book)
+std::string	formatcontact(std::string str)
+{
+	std::string	detail;
+	int			i;
+	int			j;
+
+	detail = "          ";
+	i = str.length() - 1;
+	j = 9;
+	if (i > 9)
+	{
+		detail = str.substr(0, 10);
+		detail[9] = '.';
+	}
+	else if (i < 9)
+	{
+		while (j >= 0)
+		{
+			while (i >= 0)
+				detail[j--] = str[i--];
+			detail[j] = '.';
+			j--;
+		}
+	}
+	return (detail);
+}
+
+void	contactsearch(int index, PhoneBook& book)
 {
 	std::string sfname;
 	std::string slname;
 	std::string snname;
-	int			i;
-	int			j;
 
-	i = book.cfname.length() - 1;
-	j = 9;
-	if (i > 9)
-	{
-		sfname = book.cfname.substr(0, 10);
-		sfname[9] = '.';
-	}
-	else if (i < 9)
-	{
-		while (j >= 0)
-		{
-			while (i >= 0)
-				sfname[j--] = book.cfname[i--];
-			sfname[j] = '.';
-			j--;
-		}
-	}
-	i = book.clname.length() - 1;
-	j = 9;
-	if (i > 9)
-	{
-		slname = book.clname.substr(0, 10);
-		slname[9] = '.';
-	}
-	else if (i < 9)
-	{
-		while (j >= 0)
-		{
-			while (i >= 0)
-				slname[j--] = book.clname[i--];
-			slname[j] = '.';
-			j--;
-		}
-	}
-	i = book.cnname.length() - 1;
-	j = 9;
-	if (i > 9)
-	{
-		snname = book.cnname.substr(0, 10);
-		snname[9] = '.';
-	}
-	else if (i < 9)
-	{
-		while (j >= 0)
-		{
-			while (i >= 0)
-				snname[j--] = book.cnname[i--];
-			snname[j] = '.';
-			j--;
-		}
-	}
+	sfname = formatcontact(book.cfname);
+	slname = formatcontact(book.clname);
+	snname = formatcontact(book.cnname);
 	std::cout << "         " << index + 1 << "|" << sfname << "|" << slname << "|" << snname << std::endl;
-	std::cout << "         " << index + 1 << "|" << book.cfname << "|" << book.clname << "|" << book.cnname << std::endl;
 }
 
-PhoneBook	savecontact(Contact details)
+PhoneBook	savecontact(Contact& details)
 {
 	PhoneBook book;
 
@@ -94,19 +70,30 @@ PhoneBook	savecontact(Contact details)
 	return (book);
 }
 
+void	outputdetails(PhoneBook& book)
+{
+	std::cout << "First Name    : " << book.cfname << std::endl;
+	std::cout << "Last Name     : " << book.clname << std::endl;
+	std::cout << "Nick Name     : " << book.cnname << std::endl;
+	std::cout << "Phone number  : " << book.cphone << std::endl;
+	std::cout << "Darkest secret: " << book.cdsecret << std::endl;
+}
+
 int	main(void)
 {
 	PhoneBook	book[8];
 	Contact		details;
 	std::string	input;
+	std::string	c;
 	int			i = 0;
 	int			j = 0;
+	int			x = 0;
 
 	input = "ONE";
 	while (input.compare("EXIT"))
 	{
 		std::cout << "What would you like to do?\nAdd new Contact.......enter \"ADD\".\nSearch for a Contact..enter \"SEARCH\".\nExit the Phonebook....enter \"EXIT\"" << std::endl;
-		std::cin >> input;
+		getline(std::cin, input);
 		if (!input.compare("ADD"))
 		{
 			details.details();
@@ -114,15 +101,21 @@ int	main(void)
 			i++;
 			// else
 			// 	std::cout << "Please fill out all the details!" << std::endl;
-			std::cout << "         " << i << "|" << book[i].cfname << "|" << book[i].clname << "|" << book[i].cnname << std::endl;
 		}
 		if (!input.compare("SEARCH"))
 		{
-			while (j <= i)
+			while (j < i)
 			{
 				contactsearch(j, book[j]);
 				j++;
 			}
+			while (x > j || x < 1)
+			{
+				std::cout << "Please choose a Contact to be displayed (Enter indexnumber):" << std::endl;
+				getline(std::cin, c);
+				x = stoi(c);
+			}
+			outputdetails(book[x - 1]);
 			j = 0;
 		}
 		if (i > 7)
