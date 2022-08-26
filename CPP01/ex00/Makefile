@@ -1,4 +1,4 @@
-SRCS = megaphone.cpp
+SRCS = Zombie.cpp newZombie.cpp randomChump.cpp main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.class.hpp                                  :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/22 10:15:42 by bschende          #+#    #+#             */
-/*   Updated: 2022/08/26 16:48:18 by bschende         ###   ########.fr       */
+/*   Created: 2022/08/26 18:46:34 by bschende          #+#    #+#             */
+/*   Updated: 2022/08/26 19:09:19 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_CLASS_H
-# define CONTACT_CLASS_H
+#include "Zombie.hpp"
 
-#include <iostream>
-#include <string>
+void	Zombie::announce(void)
+{
+	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl
+}
 
-class Contact {
-private:
-	std::string fname;
-	std::string lname;
-	std::string nname;
-	std::string phone;
-	std::string dsecret;
-	
-public:
-	Contact(void);
-	~Contact(void);
-	int	checkascii(std::string str);
-	void setcontactdetails(void);
-	std::string getcontactdetail(int i);
-};
-
-#endif
+void	Zombie::_setname(std::string name)
+{
+	_name = name;
+}
