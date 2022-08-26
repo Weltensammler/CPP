@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 16:30:34 by bschende          #+#    #+#             */
-/*   Updated: 2022/08/25 19:53:52 by bschende         ###   ########.fr       */
+/*   Updated: 2022/08/26 11:43:21 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,22 @@ void Contact::details(void)
 	}
 }
 
-// void Contact::setName(std::string name)
-// {
-// 	_name = name;
-// }
+std::string	Contact::getcontactdetail(int i)
+{
+	std::string	detail;
+
+	if (i == 1)
+		detail = fname;
+	if (i == 2)
+		detail = lname;
+	if (i == 3)
+		detail = nname;
+	if (i == 4)
+		detail = phone;
+	if (i == 5)
+		detail = dsecret;
+	return (detail);
+}
 
 Contact::~Contact(void)
 {

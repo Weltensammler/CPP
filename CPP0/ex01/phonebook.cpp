@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 10:35:52 by bschende          #+#    #+#             */
-/*   Updated: 2022/08/25 20:44:14 by bschende         ###   ########.fr       */
+/*   Updated: 2022/08/26 12:44:31 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,16 +82,11 @@ PhoneBook	savecontact(Contact& details)
 {
 	PhoneBook book;
 
-	if (details.fname.length() != 0)
-		book.cfname = details.fname;
-	if (details.lname.length() != 0)
-		book.clname = details.lname;
-	if (details.nname.length() != 0)
-		book.cnname = details.nname;
-	if (details.phone.length() != 0)
-		book.cphone = details.phone;
-	if (details.dsecret.length() != 0)
-		book.cdsecret = details.dsecret;
+	book.cfname = details.getcontactdetail(1);
+	book.clname = details.getcontactdetail(2);
+	book.cnname = details.getcontactdetail(3);
+	book.cphone = details.getcontactdetail(4);
+	book.cdsecret = details.getcontactdetail(5);
 	return (book);
 }
 
@@ -123,9 +118,9 @@ int	main(void)
 		getline(std::cin, input);
 		if (!input.compare("ADD"))
 		{
-			details.details();
-			book[i] = savecontact(details);
-			i++;
+			// details.details();
+			// book[i] = savecontact(details);
+			// i++;
 			if (i > 7)
 			{
 				i = 0;
@@ -134,21 +129,26 @@ int	main(void)
 		}
 		if (!input.compare("SEARCH"))
 		{
-			while (j < i || j < count)
+			if (i == 0 && count == 0)
+				std::cout << "The Phonebook is empty." << std::endl;
+			else
 			{
-				contactsearch(j, book[j]);
-				j++;
+				while (j < i || j < count)
+				{
+					contactsearch(j, book[j]);
+					j++;
+				}
+				while (x > j || x < 1)
+				{
+					std::cout << "Please choose a Contact to be displayed (Enter indexnumber):" << std::endl;
+					getline(std::cin, c);
+					if (!checkinput(c, i, count))
+						x = stoi(c);
+				}
+				outputdetails(book[x - 1]);
+				x = 0;
+				j = 0;
 			}
-			while (x > j || x < 1)
-			{
-				std::cout << "Please choose a Contact to be displayed (Enter indexnumber):" << std::endl;
-				getline(std::cin, c);
-				if (!checkinput(c, i, count))
-					x = stoi(c);
-			}
-			outputdetails(book[x - 1]);
-			x = 0;
-			j = 0;
 		}
 	}
 	return (0);

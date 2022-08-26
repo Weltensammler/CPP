@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 10:28:17 by bschende          #+#    #+#             */
-/*   Updated: 2022/08/23 18:44:11 by bschende         ###   ########.fr       */
+/*   Updated: 2022/08/26 12:48:09 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,14 @@ PhoneBook::~PhoneBook(void)
 {
 	std::cout << "Deconstructor called" << std::endl;
 	return;
+}
+
+int		addentry(int index)
+{
+	details[index].details();
+	book[index] = savecontact(details);
+	index++;
+	return (index);
 }
 
 // void	PhoneBook::contactsearch(int index)
