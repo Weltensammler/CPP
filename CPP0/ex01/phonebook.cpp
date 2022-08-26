@@ -6,13 +6,11 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 10:35:52 by bschende          #+#    #+#             */
-/*   Updated: 2022/08/26 12:44:31 by bschende         ###   ########.fr       */
+/*   Updated: 2022/08/26 14:43:59 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "PhoneBook.class.hpp"
-#include "Contact.class.hpp"
 
 int	checkinput(std::string str, int index, int count)
 {
@@ -39,70 +37,9 @@ int	checkinput(std::string str, int index, int count)
 	}
 }
 
-std::string	formatcontact(std::string str)
-{
-	std::string	detail;
-	int			i;
-	int			j;
-
-	detail = "          ";
-	i = str.length() - 1;
-	j = 9;
-	if (i > 9)
-	{
-		detail = str.substr(0, 10);
-		detail[9] = '.';
-	}
-	else if (i < 9)
-	{
-		while (j >= 0)
-		{
-			while (i >= 0)
-				detail[j--] = str[i--];
-			detail[j] = '.';
-			j--;
-		}
-	}
-	return (detail);
-}
-
-void	contactsearch(int index, PhoneBook& book)
-{
-	std::string sfname;
-	std::string slname;
-	std::string snname;
-
-	sfname = formatcontact(book.cfname);
-	slname = formatcontact(book.clname);
-	snname = formatcontact(book.cnname);
-	std::cout << "         " << index + 1 << "|" << sfname << "|" << slname << "|" << snname << std::endl;
-}
-
-PhoneBook	savecontact(Contact& details)
-{
-	PhoneBook book;
-
-	book.cfname = details.getcontactdetail(1);
-	book.clname = details.getcontactdetail(2);
-	book.cnname = details.getcontactdetail(3);
-	book.cphone = details.getcontactdetail(4);
-	book.cdsecret = details.getcontactdetail(5);
-	return (book);
-}
-
-void	outputdetails(PhoneBook& book)
-{
-	std::cout << "First Name    : " << book.cfname << std::endl;
-	std::cout << "Last Name     : " << book.clname << std::endl;
-	std::cout << "Nick Name     : " << book.cnname << std::endl;
-	std::cout << "Phone number  : " << book.cphone << std::endl;
-	std::cout << "Darkest secret: " << book.cdsecret << std::endl;
-}
-
 int	main(void)
 {
-	PhoneBook	book[8];
-	Contact		details;
+	PhoneBook	book;
 	std::string	input;
 	std::string	c;
 	int			i = 0;
@@ -118,9 +55,7 @@ int	main(void)
 		getline(std::cin, input);
 		if (!input.compare("ADD"))
 		{
-			// details.details();
-			// book[i] = savecontact(details);
-			// i++;
+			i = book.addentry(i);
 			if (i > 7)
 			{
 				i = 0;
@@ -135,7 +70,7 @@ int	main(void)
 			{
 				while (j < i || j < count)
 				{
-					contactsearch(j, book[j]);
+					book.contactsearch(j);
 					j++;
 				}
 				while (x > j || x < 1)
@@ -145,7 +80,7 @@ int	main(void)
 					if (!checkinput(c, i, count))
 						x = stoi(c);
 				}
-				outputdetails(book[x - 1]);
+				book.outputdetails(x - 1);
 				x = 0;
 				j = 0;
 			}
