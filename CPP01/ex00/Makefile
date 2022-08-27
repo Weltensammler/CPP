@@ -6,7 +6,7 @@ CC = clang++
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = megaphone
+NAME = zombie
 
 all: $(NAME)
 
