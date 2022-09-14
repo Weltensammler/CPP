@@ -3,34 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ben <ben@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/09 17:39:25 by ben               #+#    #+#             */
-/*   Updated: 2022/09/09 20:18:13 by ben              ###   ########.fr       */
+/*   Created: 2022/09/14 16:00:55 by bschende          #+#    #+#             */
+/*   Updated: 2022/09/14 16:00:56 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int	checknum(std::string str)
+bool checknum(std::string str)
 {
-	int	i;
+	size_t i;
 
-	i = 0;
-	while (str[i])
-	{
-		if ((int)str[i] < 48 || (int)str[i] > 57)
-			return (1);
-		i++;
-	}
-	return (0);
+	for (i = 0; i < str.length(); i++)
+		if (isdigit(str[i]) == false)
+			return (false);
+	return (true);
 }
 
-Zombie* newZombie(std::string name)
+Zombie*	zombieHorde(int N, std::string name)
 {
-	Zombie	*newZombie;
+	int		i;
+	Zombie	*horde = new Zombie[N];
 
-	newZombie = new Zombie;
-	newZombie->_setname(name);
-	return (newZombie);
+	for (i = 0; i < N; i++)
+	{
+		horde[i]._setname(name);
+		horde[i].announce();
+	}
+	return (horde);
 }

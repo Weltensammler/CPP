@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ben <ben@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 18:46:34 by bschende          #+#    #+#             */
-/*   Updated: 2022/09/09 12:04:08 by ben              ###   ########.fr       */
+/*   Updated: 2022/09/14 17:30:09 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,15 @@
 
 void	Zombie::announce(void)
 {
-	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-void	Zombie::_setname(std::string new_name)
+Zombie::Zombie(std::string name) : _name(name)
 {
-	name = new_name;
-}
 
-Zombie::Zombie(void)
-{
-	
 }
 
 Zombie::~Zombie(void)
 {
-	std::cout << name << ", has been destroyed" << std::endl;
+	std::cout << _name << ", has been destroyed" << std::endl;
 }

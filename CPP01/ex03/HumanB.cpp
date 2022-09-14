@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 16:00:38 by bschende          #+#    #+#             */
-/*   Updated: 2022/09/14 16:00:39 by bschende         ###   ########.fr       */
+/*   Created: 2022/09/14 17:12:16 by bschende          #+#    #+#             */
+/*   Updated: 2022/09/14 17:12:48 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#include "HumanB.hpp"
 
-#include <iostream>
-#include <string>
+	HumanB::HumanB(void)
+	{
+		
+	}
 
-class Zombie {
-	private:
-		std::string	_name;
-	public:
-		void	announce(void);
-		Zombie();
-		void	_setname(std::string name);
-		~Zombie(void);
-};
+	void	HumanB::attack(void)
+	{
+		std::cout << this->name << " attacks with their " << this->weapon << std::endl;
+	}
 
-Zombie*	zombieHorde(int N, std::string name);
-bool	checknum(std::string str);
-
-#endif
+	HumanB::~HumanB(void)
+	{
+		
+	}
+	
