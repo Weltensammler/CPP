@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 16:52:08 by bschende          #+#    #+#             */
-/*   Updated: 2022/09/14 17:44:06 by bschende         ###   ########.fr       */
+/*   Updated: 2022/09/14 18:14:18 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 #include <iostream>
 #include <string>
-#include "HumanA.hpp"
-#include "HumanB.hpp"
 
 class Weapon
 {

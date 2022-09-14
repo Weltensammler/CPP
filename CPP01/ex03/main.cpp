@@ -6,11 +6,12 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 17:18:30 by bschende          #+#    #+#             */
-/*   Updated: 2022/09/14 17:39:55 by bschende         ###   ########.fr       */
+/*   Updated: 2022/09/14 18:57:37 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
 int main()
 {
