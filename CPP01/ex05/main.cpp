@@ -5,22 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 19:19:12 by bschende          #+#    #+#             */
-/*   Updated: 2022/09/15 17:53:42 by bschende         ###   ########.fr       */
+/*   Created: 2022/09/15 17:59:54 by bschende          #+#    #+#             */
+/*   Updated: 2022/09/15 18:53:54 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Sed.hpp"
+#include "Harl.cpp"
 
-int	main(int argc, char **argv)
+int	main()
 {
-	std::string	infile = argv[1];
+	Harl	Harl;
 
-	if (argc != 4)
-	{
-		std::cout << "Invalid number of arguments!" << std::endl;
-		return (1);
-	}
-	replace(argv, infile);
-	return (0);
+	Harl.complain(de)
 }

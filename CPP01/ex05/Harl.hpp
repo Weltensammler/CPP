@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 19:19:12 by bschende          #+#    #+#             */
-/*   Updated: 2022/09/15 17:53:42 by bschende         ###   ########.fr       */
+/*   Created: 2022/09/15 18:00:04 by bschende          #+#    #+#             */
+/*   Updated: 2022/09/15 18:52:25 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Sed.hpp"
+#ifndef HARL_HPP
+# define HARL_HPP
 
-int	main(int argc, char **argv)
+#include <iostream>
+#include <string>
+
+class	Harl
 {
-	std::string	infile = argv[1];
-
-	if (argc != 4)
-	{
-		std::cout << "Invalid number of arguments!" << std::endl;
-		return (1);
-	}
-	replace(argv, infile);
-	return (0);
+private:
+	void	debug(void);
+	void	info(void);
+	void	warning(void);
+	void	error(void);
+public;
+	Harl();
+	typedef void(Harl::*Harlaction)(void);
+	void complain(std::string level);
+	~Harl();
 }
+
+#endif

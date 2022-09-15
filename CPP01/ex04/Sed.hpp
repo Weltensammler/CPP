@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Sed.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 19:19:12 by bschende          #+#    #+#             */
-/*   Updated: 2022/09/15 17:53:42 by bschende         ###   ########.fr       */
+/*   Created: 2022/09/15 10:34:39 by bschende          #+#    #+#             */
+/*   Updated: 2022/09/15 17:51:58 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Sed.hpp"
+#ifndef SED_HPP
+# define SED_HPP
 
-int	main(int argc, char **argv)
-{
-	std::string	infile = argv[1];
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
 
-	if (argc != 4)
-	{
-		std::cout << "Invalid number of arguments!" << std::endl;
-		return (1);
-	}
-	replace(argv, infile);
-	return (0);
-}
+int	replace(char **av, std::string infile);
+
+#endif
