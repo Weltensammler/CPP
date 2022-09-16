@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 16:13:44 by bschende          #+#    #+#             */
-/*   Updated: 2022/09/15 17:55:53 by bschende         ###   ########.fr       */
+/*   Updated: 2022/09/16 16:47:29 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	replace(char **av, std::string infile)
 	buffer << ifs.rdbuf();
 	contents = buffer.str();
 	ifs.close();
-	while ((i = contents.find(string1, i + 1)) >= 0)
+	while ((i = contents.find(string1, i)) >= 0)
 	{
 		contents.erase(i, string1.length());
 		contents.insert(i, av[3]);
