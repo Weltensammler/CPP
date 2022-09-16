@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 18:00:04 by bschende          #+#    #+#             */
-/*   Updated: 2022/09/15 18:52:25 by bschende         ###   ########.fr       */
+/*   Updated: 2022/09/16 09:15:07 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ private:
 	void	info(void);
 	void	warning(void);
 	void	error(void);
-public;
+public:
 	Harl();
-	typedef void(Harl::*Harlaction)(void);
+	typedef void(Harl::*HarlAction)(void);
 	void complain(std::string level);
 	~Harl();
-}
+};
 
 #endif

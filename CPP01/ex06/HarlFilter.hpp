@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HarlFilter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/15 17:59:54 by bschende          #+#    #+#             */
-/*   Updated: 2022/09/16 09:21:01 by bschende         ###   ########.fr       */
+/*   Created: 2022/09/16 09:36:22 by bschende          #+#    #+#             */
+/*   Updated: 2022/09/16 10:50:31 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef HARLFILTER_HPP
+# define HARLFILTER_HPP
 
-int	main(void)
+#include <iostream>
+#include <string>
+#include <map>
+
+class	Harl
 {
-	Harl	Harl;
+private:
+	void	debug(void);
+	void	info(void);
+	void	warning(void);
+	void	error(void);
+public:
+	Harl();
+	typedef void(Harl::*HarlAction)(void);
+	void complain(std::string level);
+	~Harl();
+};
 
-	Harl.complain("DEBUG");
-	Harl.complain("INFO");
-	Harl.complain("WARNING");
-	Harl.complain("ERROR");
-}
+#endif

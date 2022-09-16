@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.cpp                                           :+:      :+:    :+:   */
+/*   HarlFilter.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/15 18:28:46 by bschende          #+#    #+#             */
-/*   Updated: 2022/09/16 09:22:47 by bschende         ###   ########.fr       */
+/*   Created: 2022/09/16 09:36:32 by bschende          #+#    #+#             */
+/*   Updated: 2022/09/16 11:14:24 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#include "HarlFilter.hpp"
 
 Harl::Harl()
 {
@@ -41,16 +41,28 @@ void Harl::complain(std::string level)
 {
 	HarlAction p[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	std::string l[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-
 	int i = 0;
+
 	while (i < 4)
 	{
 		if (level == l[i])
-		{
-			(this->*p[i])();
 			break ;
-		}
-		i ++;
+		i++;
+	}
+	switch (i)
+	{
+	case 0:
+		(this->*p[0])();
+	case 1:
+		(this->*p[1])();
+	case 2:
+		(this->*p[2])();
+	case 3:
+		(this->*p[3])();
+		break;
+	default:
+		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+		break;
 	}
 	return ;
 }

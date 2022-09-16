@@ -5,19 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/15 17:59:54 by bschende          #+#    #+#             */
-/*   Updated: 2022/09/16 09:21:01 by bschende         ###   ########.fr       */
+/*   Created: 2022/09/16 09:36:43 by bschende          #+#    #+#             */
+/*   Updated: 2022/09/16 11:07:49 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#include "HarlFilter.hpp"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	Harl	Harl;
 
-	Harl.complain("DEBUG");
-	Harl.complain("INFO");
-	Harl.complain("WARNING");
-	Harl.complain("ERROR");
+	if (argc != 2)
+	{
+		std::cout << "Harl is not complaining enough or to little!" << std::endl;
+		return (1);
+	}
+	Harl.complain(argv[1]);
+	return (0);
 }
