@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 10:44:59 by bschende          #+#    #+#             */
-/*   Updated: 2022/09/21 13:44:48 by bschende         ###   ########.fr       */
+/*   Updated: 2022/09/21 18:41:52 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,7 +160,7 @@ Fixed	Fixed::operator--()
 	return (*this);
 }
 
-/*++ postfix Operator overload*/
+/*-- postfix Operator overload*/
 Fixed	Fixed::operator--(int)
 {
 	std::cout << "-- Postfix Operator overload called" << std::endl;
@@ -172,6 +172,7 @@ Fixed	Fixed::operator--(int)
 /*<< Operator overload*/
 std::ostream	&operator<<(std::ostream &stream, const Fixed & rhs)
 {
+	std::cout << "<< Operator overload called" << std::endl;
 	stream << rhs.fptodouble();
 	return (stream);
 }
@@ -179,30 +180,35 @@ std::ostream	&operator<<(std::ostream &stream, const Fixed & rhs)
 /*Converts int value to it's Fixed Point value*/
 int Fixed::inttofp(const int input) const
 {
+	std::cout << "inttofp function called called" << std::endl;
 	return (input * (1 << fbits) + (input >= 0 ? 0.5 : -0.5));
 }
 
 /*Converts double value to it's Fixed Point value*/
 int Fixed::doubletofp(const double input) const
 {
+	std::cout << "doubletofp function called called" << std::endl;
 	return (input * (1 << fbits) + (input >= 0 ? 0.5 : -0.5));
 }
 
 /*Converts Fixed Point value to it's int value*/
 int	Fixed::toInt(void) const
 {
+	std::cout << "toint function called called" << std::endl;
 	return (fpval / (1 << fbits));
 }
 
 /*Converts Fixed Point value to it's double value*/
 double	Fixed::fptodouble(void) const
 {
+	std::cout << "todouble function called called" << std::endl;
 	return ((double)fpval / (double)(1 << fbits));
 }
 
 /*gets the fixed point value*/
 int		Fixed::getRawBits(void) const
 {
+	std::cout << "getRawBits member function called" << std::endl;
 	return (fpval);
 }
 
@@ -212,6 +218,42 @@ void	Fixed::setRawBits(int const raw)
 	std::cout << "setRawBits member function called" << std::endl;
 	fpval = raw;
 	return ;
+}
+
+/*Returns a reference to the smallest of two fp numbers*/
+Fixed	&Fixed::min(Fixed &fpone, Fixed &fptwo)
+{
+	std::cout << "min member function called" << std::endl;
+	if (fpone.fptodouble() < fptwo.fptodouble())
+		return (fpone);
+	return (fptwo);
+}
+
+/*Returns a reference to the smallest of two const fp numbers*/
+const Fixed	&Fixed::min(Fixed const &fpone, Fixed const &fptwo)
+{
+	std::cout << "const min member function called" << std::endl;
+	if (fpone.fptodouble() < fptwo.fptodouble())
+		return (fpone);
+	return (fptwo);
+}
+
+/*Returns a reference to the bigger of two fp numbers*/
+Fixed	&Fixed::max(Fixed &fpone, Fixed &fptwo)
+{
+	std::cout << "max member function called" << std::endl;
+	if (fpone.fptodouble() > fptwo.fptodouble())
+		return (fpone);
+	return (fptwo);
+}
+
+/*Returns a reference to the bigger of two const fp numbers*/
+const Fixed	&Fixed::max(Fixed const &fpone, Fixed const &fptwo)
+{
+	std::cout << "const max member function called" << std::endl;
+	if (fpone.fptodouble() > fptwo.fptodouble())
+		return (fpone);
+	return (fptwo);
 }
 
 /*Deconstructor*/
