@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 18:51:05 by bschende          #+#    #+#             */
-/*   Updated: 2022/09/21 23:28:44 by bschende         ###   ########.fr       */
+/*   Updated: 2022/09/22 12:42:39 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ Point::Point() : x(0), y(0)
 Point::Point(const float xval, const float yval) : x(xval), y(yval)
 {
 	std::cout << "Point Default constructor called" << std::endl;
-	dx = x.fptodouble();
-	dy = y.fptodouble();
+	dx = x.toDouble();
+	dy = y.toDouble();
 	return ;
 }
 
@@ -32,8 +32,8 @@ Point::Point(const float xval, const float yval) : x(xval), y(yval)
 Point::Point(Point const & src)
 {
 	std::cout << "Point copy constructor called" << std::endl;
-	this->dx = src.getxdouble();
-	this->dy = src.getydouble();
+	this->dx = src.getDoubleX();
+	this->dy = src.getDoubleY();
 	return ;
 }
 
@@ -46,14 +46,14 @@ Point	&Point::operator=(Point const & rhs)
 }
 
 /*gets dx*/
-double		Point::getxdouble(void) const
+double		Point::getDoubleX(void) const
 {
 	std::cout << "getxdouble member function called" << std::endl;
 	return (dx);
 }
 
 /*gets dy*/
-double		Point::getydouble(void) const
+double		Point::getDoubleY(void) const
 {
 	std::cout << "getRawBits member function called" << std::endl;
 	return (dy);

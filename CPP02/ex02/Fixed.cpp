@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 10:44:59 by bschende          #+#    #+#             */
-/*   Updated: 2022/09/21 18:41:52 by bschende         ###   ########.fr       */
+/*   Updated: 2022/09/22 12:34:54 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Fixed::Fixed(void)
 Fixed::Fixed(const int _fpval)
 {
 	std::cout << "Value int constructor called" << std::endl;
-	fpval = inttofp(_fpval);
+	fpval = toFp(_fpval);
 	return ;
 }
 
@@ -33,7 +33,7 @@ Fixed::Fixed(const int _fpval)
 Fixed::Fixed(const double floatval)
 {
 	std::cout << "Value float constructor called" << std::endl;
-	fpval = doubletofp(floatval);
+	fpval = toFp(floatval);
 	return ;
 }
 
@@ -57,7 +57,7 @@ Fixed	&Fixed::operator=(Fixed const & rhs)
 bool	Fixed::operator>(Fixed const & rhs) const
 {
 	std::cout << "> Operator overload called" << std::endl;
-	if (fptodouble() > rhs.fptodouble())
+	if (toDouble() > rhs.toDouble())
 		return (true);
 	return (false);
 }
@@ -66,7 +66,7 @@ bool	Fixed::operator>(Fixed const & rhs) const
 bool	Fixed::operator<(Fixed const & rhs) const
 {
 	std::cout << "< Operator overload called" << std::endl;
-	if (fptodouble() < rhs.fptodouble())
+	if (toDouble() < rhs.toDouble())
 		return (true);
 	return (false);
 }
@@ -75,7 +75,7 @@ bool	Fixed::operator<(Fixed const & rhs) const
 bool	Fixed::operator>=(Fixed const & rhs) const
 {
 	std::cout << ">= Operator overload called" << std::endl;
-	if (fptodouble() >= rhs.fptodouble())
+	if (toDouble() >= rhs.toDouble())
 		return (true);
 	return (false);
 }
@@ -84,7 +84,7 @@ bool	Fixed::operator>=(Fixed const & rhs) const
 bool	Fixed::operator<=(Fixed const & rhs) const
 {
 	std::cout << "<= Operator overload called" << std::endl;
-	if (fptodouble() <= rhs.fptodouble())
+	if (toDouble() <= rhs.toDouble())
 		return (true);
 	return (false);
 }
@@ -93,7 +93,7 @@ bool	Fixed::operator<=(Fixed const & rhs) const
 bool	Fixed::operator==(Fixed const & rhs) const
 {
 	std::cout << "== Operator overload called" << std::endl;
-	if (fptodouble() == rhs.fptodouble())
+	if (toDouble() == rhs.toDouble())
 		return (true);
 	return (false);
 }
@@ -102,7 +102,7 @@ bool	Fixed::operator==(Fixed const & rhs) const
 bool	Fixed::operator!=(Fixed const & rhs) const
 {
 	std::cout << "!= Operator overload called" << std::endl;
-	if (fptodouble() != rhs.fptodouble())
+	if (toDouble() != rhs.toDouble())
 		return (true);
 	return (false);
 }
@@ -111,28 +111,28 @@ bool	Fixed::operator!=(Fixed const & rhs) const
 Fixed	Fixed::operator+(Fixed const & rhs) const
 {
 	std::cout << "+ Operator overload called" << std::endl;
-	return (fptodouble() + rhs.fptodouble());
+	return (toDouble() + rhs.toDouble());
 }
 
 /*- Operator overload*/
 Fixed	Fixed::operator-(Fixed const & rhs) const
 {
 	std::cout << "- Operator overload called" << std::endl;
-	return (fptodouble() - rhs.fptodouble());
+	return (toDouble() - rhs.toDouble());
 }
 
 /** Operator overload*/
 Fixed	Fixed::operator*(Fixed const & rhs) const
 {
 	std::cout << "* Operator overload called" << std::endl;
-	return (fptodouble() * rhs.fptodouble());
+	return (toDouble() * rhs.toDouble());
 }
 
 /*/ Operator overload*/
 Fixed	Fixed::operator/(Fixed const & rhs) const
 {
 	std::cout << "/ Operator overload called" << std::endl;
-	return (fptodouble() / rhs.fptodouble());
+	return (toDouble() / rhs.toDouble());
 }
 
 /*++ prefix Operator overload*/
@@ -173,19 +173,19 @@ Fixed	Fixed::operator--(int)
 std::ostream	&operator<<(std::ostream &stream, const Fixed & rhs)
 {
 	std::cout << "<< Operator overload called" << std::endl;
-	stream << rhs.fptodouble();
+	stream << rhs.toDouble();
 	return (stream);
 }
 
 /*Converts int value to it's Fixed Point value*/
-int Fixed::inttofp(const int input) const
+int Fixed::toFp(const int input) const
 {
 	std::cout << "inttofp function called called" << std::endl;
 	return (input * (1 << fbits) + (input >= 0 ? 0.5 : -0.5));
 }
 
 /*Converts double value to it's Fixed Point value*/
-int Fixed::doubletofp(const double input) const
+int Fixed::toFp(const double input) const
 {
 	std::cout << "doubletofp function called called" << std::endl;
 	return (input * (1 << fbits) + (input >= 0 ? 0.5 : -0.5));
@@ -199,7 +199,7 @@ int	Fixed::toInt(void) const
 }
 
 /*Converts Fixed Point value to it's double value*/
-double	Fixed::fptodouble(void) const
+double	Fixed::toDouble(void) const
 {
 	std::cout << "todouble function called called" << std::endl;
 	return ((double)fpval / (double)(1 << fbits));
@@ -224,7 +224,7 @@ void	Fixed::setRawBits(int const raw)
 Fixed	&Fixed::min(Fixed &fpone, Fixed &fptwo)
 {
 	std::cout << "min member function called" << std::endl;
-	if (fpone.fptodouble() < fptwo.fptodouble())
+	if (fpone.toDouble() < fptwo.toDouble())
 		return (fpone);
 	return (fptwo);
 }
@@ -233,7 +233,7 @@ Fixed	&Fixed::min(Fixed &fpone, Fixed &fptwo)
 const Fixed	&Fixed::min(Fixed const &fpone, Fixed const &fptwo)
 {
 	std::cout << "const min member function called" << std::endl;
-	if (fpone.fptodouble() < fptwo.fptodouble())
+	if (fpone.toDouble() < fptwo.toDouble())
 		return (fpone);
 	return (fptwo);
 }
@@ -242,7 +242,7 @@ const Fixed	&Fixed::min(Fixed const &fpone, Fixed const &fptwo)
 Fixed	&Fixed::max(Fixed &fpone, Fixed &fptwo)
 {
 	std::cout << "max member function called" << std::endl;
-	if (fpone.fptodouble() > fptwo.fptodouble())
+	if (fpone.toDouble() > fptwo.toDouble())
 		return (fpone);
 	return (fptwo);
 }
@@ -251,7 +251,7 @@ Fixed	&Fixed::max(Fixed &fpone, Fixed &fptwo)
 const Fixed	&Fixed::max(Fixed const &fpone, Fixed const &fptwo)
 {
 	std::cout << "const max member function called" << std::endl;
-	if (fpone.fptodouble() > fptwo.fptodouble())
+	if (fpone.toDouble() > fptwo.toDouble())
 		return (fpone);
 	return (fptwo);
 }

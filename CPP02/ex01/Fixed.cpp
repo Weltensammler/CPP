@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 16:22:41 by bschende          #+#    #+#             */
-/*   Updated: 2022/09/20 17:38:26 by bschende         ###   ########.fr       */
+/*   Updated: 2022/09/22 12:28:23 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Fixed::Fixed(void)
 Fixed::Fixed(const int _fpval)
 {
 	std::cout << "Value int constructor called" << std::endl;
-	fpval = inttofp(_fpval);
+	fpval = toFp(_fpval);
 	return ;
 }
 
@@ -32,7 +32,7 @@ Fixed::Fixed(const int _fpval)
 Fixed::Fixed(const double floatval)
 {
 	std::cout << "Value float constructor called" << std::endl;
-	fpval = doubletofp(floatval);
+	fpval = toFp(floatval);
 	return ;
 }
 
@@ -55,18 +55,18 @@ Fixed	&Fixed::operator=(Fixed const & rhs)
 /*<< Operator overload*/
 std::ostream	&operator<<(std::ostream &stream, const Fixed & rhs)
 {
-	stream << rhs.fptodouble();
+	stream << rhs.toDouble();
 	return (stream);
 }
 
 /*Converts int value to it's Fixed Point value*/
-int Fixed::inttofp(const int input) const
+int Fixed::toFp(const int input) const
 {
 	return (input * (1 << fbits) + (input >= 0 ? 0.5 : -0.5));
 }
 
 /*Converts double value to it's Fixed Point value*/
-int Fixed::doubletofp(const double input) const
+int Fixed::toFp(const double input) const
 {
 	return (input * (1 << fbits) + (input >= 0 ? 0.5 : -0.5));
 }
@@ -78,7 +78,7 @@ int	Fixed::toInt(void) const
 }
 
 /*Converts Fixed Point value to it's double value*/
-double	Fixed::fptodouble(void) const
+double	Fixed::toDouble(void) const
 {
 	return ((double)fpval / (double)(1 << fbits));
 }

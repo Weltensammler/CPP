@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 10:45:09 by bschende          #+#    #+#             */
-/*   Updated: 2022/09/21 18:18:58 by bschende         ###   ########.fr       */
+/*   Updated: 2022/09/22 12:31:59 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ public:
 	Fixed		operator++(int);
 	Fixed		operator--();
 	Fixed		operator--(int);
-	int			inttofp(const int input) const;
-	int			doubletofp(const double input) const;
+	int			toFp(const int input) const;
+	int			toFp(const double input) const;
 	int			toInt(void) const;
-	double		fptodouble(void) const;
+	double		toDouble(void) const;
 	int			getRawBits(void) const;
 	void		setRawBits(int const raw);
 	static Fixed	&min(Fixed &fpone, Fixed &fptwo);

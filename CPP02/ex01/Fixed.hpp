@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 16:22:49 by bschende          #+#    #+#             */
-/*   Updated: 2022/09/20 17:36:59 by bschende         ###   ########.fr       */
+/*   Updated: 2022/09/22 12:24:50 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ class	Fixed{
 				~Fixed();
 
 		Fixed	&operator=(Fixed const & rhs);
-		int		inttofp(const int input) const;
-		int		doubletofp(const double input) const;
+		int		toFp(const int input) const;
+		int		toFp(const double input) const;
 		int		toInt(void) const ;
-		double	fptodouble(void) const;
+		double	toDouble(void) const;
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
 };
