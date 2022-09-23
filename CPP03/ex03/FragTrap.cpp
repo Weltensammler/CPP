@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:24:08 by bschende          #+#    #+#             */
-/*   Updated: 2022/09/23 16:35:24 by bschende         ###   ########.fr       */
+/*   Updated: 2022/09/23 23:07:32 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ FragTrap::FragTrap(void)
 	this->setHp(100);
 	this->setEp(100);
 	this->setDmg(30);
+	hp = 100;
+	ep = 100;
+	dmg = 30;
 	return ;
 }
 
@@ -30,6 +33,9 @@ FragTrap::FragTrap(const std::string name)
 	this->setHp(100);
 	this->setEp(100);
 	this->setDmg(30);
+	hp = 100;
+	ep = 100;
+	dmg = 30;
 	return ;
 }
 
