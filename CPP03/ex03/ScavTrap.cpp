@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 23:05:52 by bschende          #+#    #+#             */
-/*   Updated: 2022/09/23 23:07:46 by bschende         ###   ########.fr       */
+/*   Updated: 2022/09/24 16:18:14 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ ScavTrap::~ScavTrap()
 	return ;
 }
 
+/*ScavTrap attacks target*/
 void	ScavTrap::attack(const std::string& target)
 {
 	this->_ep--;

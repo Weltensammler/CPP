@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 19:41:50 by bschende          #+#    #+#             */
-/*   Updated: 2022/09/24 00:18:36 by bschende         ###   ########.fr       */
+/*   Updated: 2022/09/24 16:20:09 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,18 +49,21 @@ int	main(void)
 			john.attack(enemy[generator()]);
 			scav.attack(enemy[generator()]);
 			frag.attack(enemy[generator()]);
+			bling.attack(enemy[generator()]);
 		}
 		else if (i == 1)
 		{
 			john.takeDamage(damage[generator()]);
 			scav.takeDamage(damage[generator()]);
 			frag.takeDamage(damage[generator()]);
+			bling.takeDamage(damage[generator()]);
 		}
 		else
 		{
 			john.beRepaired(repair[generator()]);
 			scav.beRepaired(repair[generator()]);
 			frag.beRepaired(repair[generator()]);
+			bling.beRepaired(repair[generator()]);
 		}
 	}
 	if (john.getEp() == 0)

@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 19:21:49 by bschende          #+#    #+#             */
-/*   Updated: 2022/09/24 00:26:29 by bschende         ###   ########.fr       */
+/*   Updated: 2022/09/24 16:32:14 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 DiamondTrap::DiamondTrap(void)
 {
 	std::cout << "DiamondTrap Default constructor called" << std::endl;
-	ClapTrap::_name = this->_name + "_clap_name";
+	// ClapTrap::_name = this->_name + "_clap_name";
 	this->_hp = FragTrap::hp;
 	this->_ep = ScavTrap::ep;
 	this->_dmg = FragTrap::dmg;
@@ -24,11 +24,10 @@ DiamondTrap::DiamondTrap(void)
 }
 
 /*Constructor that that takes an int and sets the FP value*/
-DiamondTrap::DiamondTrap(const std::string name) //ClapTrap(std::string(name).append("_clap_name"))
+DiamondTrap::DiamondTrap(const std::string name) : ClapTrap(std::string(name).append("_clap_name"))
 {
 	std::cout << "DiamondTrap Name constructor called" << std::endl;
-	ClapTrap::_name = this->_name + "_clap_name";
-	this->setName(name);
+	this->_name = name;
 	this->_hp = FragTrap::hp;
 	this->_ep = ScavTrap::ep;
 	this->_dmg = FragTrap::dmg;
