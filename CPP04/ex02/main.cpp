@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 13:27:20 by bschende          #+#    #+#             */
-/*   Updated: 2022/09/26 10:34:09 by bschende         ###   ########.fr       */
+/*   Updated: 2022/09/26 11:08:30 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 int	main(void)
 {
 	const Animal* horde[20];
+	// const Animal* meta = new Animal;
 
 	for (int i = 0; i < 20; i++)
 	{

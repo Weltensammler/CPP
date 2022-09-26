@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 13:16:09 by bschende          #+#    #+#             */
-/*   Updated: 2022/09/26 10:37:21 by bschende         ###   ########.fr       */
+/*   Updated: 2022/09/26 10:54:56 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,12 @@ Cat::~Cat()
 void	Cat::makeSound(void) const
 {
 	std::cout << this->_type << " MEEEEOOOOOWWWWWWW!" << std::endl;
+}
+
+/*get's the cats type*/
+std::string	Cat::getType(void) const
+{
+	return (this->_type);
 }
 
 // /*For deep copy test*/

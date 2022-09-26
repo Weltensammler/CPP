@@ -1,76 +1,69 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/25 13:16:09 by bschende          #+#    #+#             */
-/*   Updated: 2022/09/26 10:37:21 by bschende         ###   ########.fr       */
+/*   Created: 2022/09/25 13:26:26 by bschende          #+#    #+#             */
+/*   Updated: 2022/09/26 10:55:59 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Dog.hpp"
 
 /*Default Constructor*/
-Cat::Cat(void) : Animal()
+Dog::Dog(void) : Animal()
 {
-	std::cout << "Cat Default constructor called" << std::endl;
-	this->_type = "Cat";
+	std::cout << "Dog Default constructor called" << std::endl;
+	this->_type = "Dog";
 	this->brain = new Brain;
 	return ;
 }
 
 /*Constructor that that takes an int and sets the FP value*/
-Cat::Cat(const std::string type) : Animal()
+Dog::Dog(const std::string type) : Animal()
 {
-	std::cout << "Cat Name constructor called" << std::endl;
+	std::cout << "Dog Name constructor called" << std::endl;
 	this->_type = type;
 	this->brain = new Brain;
 	return ;
 }
 
 /*Copy Constructor*/
-Cat::Cat(Cat const & src) : Animal()
+Dog::Dog(Dog const & src) : Animal()
 {
-	std::cout << "Cat copy constructor called" << std::endl;
+	std::cout << "Dog copy constructor called" << std::endl;
 	*this = src;
 	return ;
 }
 
 /*= Operator overload*/	
-Cat	&Cat::operator=(Cat const & src)
+Dog	&Dog::operator=(Dog const & src)
 {
-	std::cout << src.getType() << std::endl;
 	this->_type = src._type;
-	// this->brain = src.brain; //test for deep copy 
 	this->brain = new Brain;
 	*(this->brain) = *(src.brain);
 	return (*this);
 }
 
 /*Deconstructor*/
-Cat::~Cat()
+Dog::~Dog()
 {
-	std::cout << "Cat Deconstructor called" << std::endl;
+	std::cout << "Dog Deconstructor called" << std::endl;
 	delete(brain);
 	return ;
 }
 
 
 /*Outputs the animals sound*/
-void	Cat::makeSound(void) const
+void	Dog::makeSound(void) const
 {
-	std::cout << this->_type << " MEEEEOOOOOWWWWWWW!" << std::endl;
+	std::cout << this->_type << " Bark bark bark!" << std::endl;
 }
 
-// /*For deep copy test*/
-// void	Cat::setbrain(std::string idea)
-// {
-// 	this->brain->ideas[0] = idea;
-// }
-
-// std::string	Cat::getbrain(void)
-// {
-// 	return (this->brain->ideas[0]);
-// }
+/*get's the dogs type*/
+std::string	Dog::getType(void) const
+{
+	return (this->_type);
+}

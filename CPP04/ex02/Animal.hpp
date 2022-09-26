@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/24 16:59:12 by bschende          #+#    #+#             */
-/*   Updated: 2022/09/26 10:33:48 by bschende         ###   ########.fr       */
+/*   Created: 2022/09/24 16:56:52 by bschende          #+#    #+#             */
+/*   Updated: 2022/09/26 11:11:27 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include <iostream>
+#include <string>
 
-class Cat : public Animal{
-	private:
-	Brain*	brain;
+class Animal{
+	protected:
+		std::string	_type;
 	public:
-			Cat(void);
-			Cat(std::string name);
-			Cat(Cat const & src);
-			~Cat(void);
-	Cat		&operator=(Cat const & src);
-	void	makeSound(void) const;
-			// void	setbrain(std::string idea);
-			// std::string		getbrain(void);
+					Animal(void);
+					Animal(const std::string type);
+					Animal(Animal const & src);
+			virtual	~Animal(void);
+	Animal			&operator=(Animal const & src);
+	virtual std::string	getType(void) const = 0;
+	virtual void		makeSound(void) const = 0;
 };
 
 #endif

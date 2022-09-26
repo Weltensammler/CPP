@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/24 16:59:12 by bschende          #+#    #+#             */
-/*   Updated: 2022/09/26 10:33:48 by bschende         ###   ########.fr       */
+/*   Created: 2022/09/25 15:21:40 by bschende          #+#    #+#             */
+/*   Updated: 2022/09/26 10:50:53 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include <iostream>
 
-class Cat : public Animal{
+class Brain{
 	private:
-	Brain*	brain;
+		std::string	ideas[100];
 	public:
-			Cat(void);
-			Cat(std::string name);
-			Cat(Cat const & src);
-			~Cat(void);
-	Cat		&operator=(Cat const & src);
-	void	makeSound(void) const;
-			// void	setbrain(std::string idea);
-			// std::string		getbrain(void);
+					Brain(void);	
+					Brain(Brain const & src);
+					~Brain(void);
+	Brain			&operator=(Brain const & src);
+	// std::string	ideas[100]; //for copy testing
 };
 
 #endif
