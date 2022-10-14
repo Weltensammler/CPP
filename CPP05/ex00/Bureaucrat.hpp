@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ben <ben@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 10:06:15 by ben               #+#    #+#             */
-/*   Updated: 2022/10/14 11:19:37 by ben              ###   ########.fr       */
+/*   Updated: 2022/10/14 13:32:46 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ class Bureaucrat{
 	std::string		getName(void) const;
 	int				getGrade(void) const;
 };
+
+std::ostream	&operator<<(std::ostream &stream, const Bureaucrat & rhs);
 
 #endif
