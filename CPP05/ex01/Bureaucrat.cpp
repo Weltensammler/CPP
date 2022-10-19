@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 10:55:14 by ben               #+#    #+#             */
-/*   Updated: 2022/10/19 14:10:26 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/19 17:25:16 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : _name (name), _grade
 }
 
 /*Copy Constructor*/
-Bureaucrat::Bureaucrat(Bureaucrat const & src)
+Bureaucrat::Bureaucrat(Bureaucrat const & src) : _name (src._name)
 {
 	std::cout << "Bureaucrat copy constructor called" << std::endl;
 	*this = src;
@@ -101,4 +101,23 @@ void	Bureaucrat::decGrade(void)
 		throw Bureaucrat::GradeTooHighException();
 	else if (this->_grade > 150)
 		throw Bureaucrat::GradeTooLowException();
+}
+
+/*Signs a form*/
+void	Bureaucrat::signForm(Form &src)
+{
+	if (src.getSignature())
+		std::cout << this->_name << " couldn't sign " << src.getName() << " because form is already signed" << std::endl;
+	else
+	{
+		try
+		{
+			src.beSigned(*this);
+			std::cout << this->_name << " signed " << src.getName() << std::endl;
+		}
+		catch (std::exception const &e)
+		{
+			std::cout << this->_name << " couldn't sign " << src.getName() << " because his Grade is too low" << std::endl;
+		}
+	}
 }

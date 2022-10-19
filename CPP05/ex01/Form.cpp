@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:51:12 by bschende          #+#    #+#             */
-/*   Updated: 2022/10/19 15:02:29 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/19 17:26:01 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Form::Form(const std::string name, bool signature, int silevel, int exlevel) : _
 }
 
 /*Copy Constructor*/
-Form::Form(Form const & src)
+Form::Form(Form const & src) : _name (src._name), _silevel (src._silevel), _exlevel (src._exlevel)
 {
 	std::cout << "Form copy constructor called" << std::endl;
 	*this = src;
@@ -46,15 +46,48 @@ Form	&Form::operator=(Form const & src)
 }
 
 /*<< Operator overload*/	
-std::ostream	&operator<<(std::ostream &stream, const Bureaucrat & rhs)
+std::ostream	&operator<<(std::ostream &stream, const Form & src)
 {
-	stream << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
+	stream << "Form Name: " << src.getName() << "\n" << "Is Form signed: " << src.getSignature() << "\n" << "Required grade to sign: " << src.getSiLevel() << "\n" << "Required grade to execute: " << src.getExLevel() << std::endl;;
 	return (stream);
 }
 
 /*Deconstructor*/
-Bureaucrat::~Bureaucrat()
+Form::~Form()
 {
-	std::cout << "Bureaucrat Deconstructor called" << std::endl;
+	std::cout << "Form Deconstructor called" << std::endl;
 	return ;
+}
+
+/*gets Name of Form*/
+std::string	Form::getName(void) const
+{
+	return (this->_name);
+}
+
+/*gets if Form is signed*/
+bool	Form::getSignature(void) const
+{
+	return (this->_signed);
+}
+
+/*gets silevel of Form*/
+int	Form::getSiLevel(void) const
+{
+	return (this->_silevel);
+}
+
+/*gets exlevel of Form*/
+int	Form::getExLevel(void) const
+{
+	return (this->_exlevel);
+}
+
+/*signs the form if level is high enough*/
+void	Form::beSigned(Bureaucrat &src)
+{
+	if (src.getGrade() <= this->_silevel)
+		this->_signed = true;
+	else if (src.getGrade() > this->_silevel)
+		throw Bureaucrat::GradeTooLowException();
 }
