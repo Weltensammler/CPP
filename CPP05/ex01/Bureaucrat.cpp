@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 10:55:14 by ben               #+#    #+#             */
-/*   Updated: 2022/10/19 14:56:13 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/19 14:10:26 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Bureaucrat::Bureaucrat(void) : _name ("Some Bureaucrat"), _grade (75)
 	return ;
 }
 
-/*Constructor that that takes Attributes*/
+/*Constructor that that takes an int and sets the FP value*/
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name (name), _grade (grade)
 {
 	std::cout << "Bureaucrat Name constructor called" << std::endl;
