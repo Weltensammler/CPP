@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:51:12 by bschende          #+#    #+#             */
-/*   Updated: 2022/10/19 17:26:01 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/20 22:44:19 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Form::Form(void) : _name ("Some Form"), _signed (false), _silevel (150), _exleve
 }
 
 /*Constructor that that takes Attributes*/
-Form::Form(const std::string name, bool signature, int silevel, int exlevel) : _name (name), _signed (signature), _silevel (silevel), _exlevel (exlevel)
+Form::Form(const std::string name, int silevel, int exlevel) : _name (name), _signed (false), _silevel (silevel), _exlevel (exlevel)
 {
 	std::cout << "Form Name constructor called" << std::endl;
 	if (this->_silevel < 1 || this->_exlevel < 1)

@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 10:06:15 by ben               #+#    #+#             */
-/*   Updated: 2022/10/19 14:07:01 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/20 23:14:19 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <string>
 
 class Bureaucrat{
-	protected:
+	private:
 		const std::string	_name;
 		int					_grade;
 	public:

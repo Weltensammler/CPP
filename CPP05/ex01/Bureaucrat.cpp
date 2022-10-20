@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 10:55:14 by ben               #+#    #+#             */
-/*   Updated: 2022/10/19 17:25:16 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/20 22:48:43 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ void	Bureaucrat::signForm(Form &src)
 		}
 		catch (std::exception const &e)
 		{
-			std::cout << this->_name << " couldn't sign " << src.getName() << " because his Grade is too low" << std::endl;
+			std::cout << this->_name << " couldn't sign " << src.getName() << " because " << e.what() << std::endl;
 		}
 	}
 }

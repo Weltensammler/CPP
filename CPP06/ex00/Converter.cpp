@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 18:42:53 by bschende          #+#    #+#             */
-/*   Updated: 2022/10/20 21:16:44 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/20 22:25:58 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,7 @@ std::string	Converter::getType(void) const
 /*identifies the type*/
 void	Converter::identType(void)
 {
-	if (_input.length() == 1 && isalpha(_input))
+	if (this->_input.length() == 1 && !isdigit(this->_input.at(0)))
+		this->_type = "CHAR";
+	else if ()
 }

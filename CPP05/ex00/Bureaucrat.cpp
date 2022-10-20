@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 10:55:14 by ben               #+#    #+#             */
-/*   Updated: 2022/10/19 15:57:47 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/20 22:38:34 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : _name (name), _grade
 
 /*Copy Constructor*/
 Bureaucrat::Bureaucrat(Bureaucrat const & src) : _name (src._name)
+{
 	std::cout << "Bureaucrat copy constructor called" << std::endl;
 	*this = src;
 	return ;

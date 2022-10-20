@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 10:06:15 by ben               #+#    #+#             */
-/*   Updated: 2022/10/19 17:25:28 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/20 23:20:54 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class Form;
 
 class Bureaucrat{
-	protected:
+	private:
 		const std::string	_name;
 		int					_grade;
 	public:

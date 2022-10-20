@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:42:23 by bschende          #+#    #+#             */
-/*   Updated: 2022/10/19 18:00:24 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/20 22:44:29 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class	Form{
 		const int			_exlevel;
 	public:
 				Form(void);
-				Form(const std::string name, bool signature, int silevel, int exlevel);
+				Form(const std::string name, int silevel, int exlevel);
 				Form(Form const & src);
 				~Form(void);
 	Form		&operator=(Form const & src);
