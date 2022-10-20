@@ -1,0 +1,9 @@
+int input;
+
+std::cin >> input;
+if (std::cin.fail())
+{
+	std::cout << "User gave us shit!" std::endl;
+	std::cin.clear();
+	std::cin.ignore();
+}

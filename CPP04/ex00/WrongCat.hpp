@@ -22,7 +22,6 @@ class WrongCat : public WrongAnimal{
 			WrongCat(WrongCat const & src);
 			~WrongCat(void);
 	WrongCat &operator=(WrongCat const & src);
-	void	makeSound(void) const;
 };
 
 #endif

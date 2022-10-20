@@ -49,10 +49,3 @@ WrongCat::~WrongCat()
 	std::cout << "WrongCat Deconstructor called" << std::endl;
 	return ;
 }
-
-
-/*Outputs the WrongAnimals sound*/
-void	WrongCat::makeSound(void) const
-{
-	std::cout << this->_type << " MEEEEOOOOOWWWWWWW!" << std::endl;
-}

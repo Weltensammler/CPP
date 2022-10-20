@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 17:13:09 by bschende          #+#    #+#             */
-/*   Updated: 2022/09/14 17:41:50 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/19 13:36:27 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 		return (this->type);
 	}
 
-	void				Weapon::setType(std::string weapon)
+	void	Weapon::setType(std::string weapon)
 	{
 		this->type = weapon;
 	}
