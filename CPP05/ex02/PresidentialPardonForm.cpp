@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 09:17:15 by bschende          #+#    #+#             */
-/*   Updated: 2022/10/20 11:04:13 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/20 15:10:24 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & sr
 /*= Operator overload*/	
 PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm const &cpy)
 {
-	(void)cpy;//Was ist das ?
+	(void)cpy;
 	return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 09:17:15 by bschende          #+#    #+#             */
-/*   Updated: 2022/10/20 11:04:13 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/20 18:46:24 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ PresidentialPardonForm::PresidentialPardonForm() : Form(), _target("Default")
 PresidentialPardonForm::PresidentialPardonForm(std::string const target) : Form("PresidentialPardon", false, 25, 5), _target(target)
 {
 	std::cout << "PresidentialPardonForm Name constructor called" << std::endl;
+	return ;
 }
 
 /*Deconstructor*/
@@ -43,7 +44,7 @@ PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & sr
 /*= Operator overload*/	
 PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm const &cpy)
 {
-	(void)cpy;//Was ist das ?
+	(void)cpy;
 	return (*this);
 }
 

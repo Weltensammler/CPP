@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 10:24:13 by bschende          #+#    #+#             */
-/*   Updated: 2022/10/20 11:01:49 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/20 18:46:35 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ ShrubberyCreationForm::ShrubberyCreationForm() : Form(), _target("Default")
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const target) : Form("Shrubbery creation", false, 25, 5), _target(target)
 {
 	std::cout << "ShrubberyCreationForm Name constructor called" << std::endl;
+	return ;
 }
 
 /*Deconstructor*/
@@ -43,7 +44,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & src) 
 /*= Operator overload*/	
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &cpy)
 {
-	(void)cpy;//Was ist das ?
+	(void)cpy;
 	return (*this);
 }
 

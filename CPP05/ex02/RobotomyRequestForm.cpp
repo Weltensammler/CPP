@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 10:13:52 by bschende          #+#    #+#             */
-/*   Updated: 2022/10/20 11:03:39 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/20 15:10:31 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & src) : Form
 /*= Operator overload*/	
 RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &cpy)
 {
-	(void)cpy;//Was ist das ?
+	(void)cpy;
 	return (*this);
 }
 

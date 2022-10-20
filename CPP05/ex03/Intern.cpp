@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 11:30:57 by bschende          #+#    #+#             */
-/*   Updated: 2022/10/20 12:01:06 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/20 15:12:31 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Intern::Intern(Intern const & src)
 /*= Operator overload*/	
 Intern &Intern::operator=(Intern const &cpy)
 {
-	(void)cpy;//Was ist das ?
+	(void)cpy;
 	return (*this);
 }
 

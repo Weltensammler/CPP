@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 10:24:13 by bschende          #+#    #+#             */
-/*   Updated: 2022/10/20 11:01:49 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/20 15:10:38 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & src) 
 /*= Operator overload*/	
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &cpy)
 {
-	(void)cpy;//Was ist das ?
+	(void)cpy;
 	return (*this);
 }
 
