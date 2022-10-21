@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 22:05:31 by bschende          #+#    #+#             */
-/*   Updated: 2022/10/20 22:06:15 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/21 19:23:45 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,14 @@
 
 int main(int argc, char **argv)
 {
-	
+	if (argc != 2)
+	{
+		std::cout << "only one conversion is allowed" << std::endl;
+		return (1);
+	}
+	const std::string input = argv[1];
+	Converter test;
+	test.setInput(input);
+	test.outputConversions();
+	return (0);
 }
