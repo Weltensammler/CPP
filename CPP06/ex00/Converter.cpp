@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 18:42:53 by bschende          #+#    #+#             */
-/*   Updated: 2022/10/20 22:25:58 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/21 09:23:57 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,12 @@ void	Converter::identType(void)
 {
 	if (this->_input.length() == 1 && !isdigit(this->_input.at(0)))
 		this->_type = "CHAR";
-	else if ()
+	else if (this->_input == "nan" || this->_input == "nanf")
+		this->_type = 
+	else if (this->_input == "-inf" || this->_input == "+inf")
+		this->_type =
+	else if (this->_input == "-inff" || this->_input == "+inff")
+		this->_type
+	else
+	
 }

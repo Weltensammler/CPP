@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 11:30:57 by bschende          #+#    #+#             */
-/*   Updated: 2022/10/20 15:12:31 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/21 12:03:35 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,37 +41,49 @@ Intern &Intern::operator=(Intern const &cpy)
 	return (*this);
 }
 
+/*Creates a new PresidentialPardonForm and returns the pointer*/
+Form*	Intern::makePardonForm(std::string target)
+{
+	Form *tmp = NULL;
+
+	tmp = new PresidentialPardonForm(target);
+	return (tmp);
+}
+
+/*Creates a new ShrubberyCreationForm and returns the pointer*/
+Form*	Intern::makeCreationForm(std::string target)
+{
+	Form *tmp = NULL;
+
+	tmp = new ShrubberyCreationForm(target);
+	return (tmp);
+}
+
+/*Creates a new RobotomyRequestForm and returns the pointer*/
+Form*	Intern::makeRequestForm(std::string target)
+{
+	Form *tmp = NULL;
+
+	tmp = new RobotomyRequestForm(target);
+	return (tmp);
+}
+
 /*Creates a new form and returns the pointer*/
 Form*	Intern::makeForm(std::string name, std::string target)
 {
+	Create p[3] = {&Intern::makeCreationForm, &Intern::makeRequestForm, &Intern::makePardonForm};
 	std::string form[3] = {"ShrubberyCreation", "RobotomyRequest", "PresidentialPardon"};
-	int caseNumb = -1;
 	Form *tmp = NULL;
 	for (int i = 0; i < 3; i++)
 	{
 		if (form[i] == name)
 		{
-			caseNumb = i;
+			tmp = (this->*p[i])(target);
+			std::cout << "Intern creates form " << name << std::endl;
 			break ;
 		}
-	}
-	switch (caseNumb)
-	{
-		case 0:
-			tmp = new ShrubberyCreationForm(target);
-			std::cout << "Intern creates form " << name << std::endl;
-			break;
-		case 1:
-			tmp = new RobotomyRequestForm(target);
-			std::cout << "Intern creates form " << name << std::endl;
-			break;
-		case 2:
-			tmp = new PresidentialPardonForm(target);
-			std::cout << "Intern creates form " << name << std::endl;
-			break;
-		default:
+		else if (i == 2)
 			std::cout << "Intern can not create form " << name << " as it does not exist." << std::endl;
-			break;
 	}
 	return (tmp);
 }
