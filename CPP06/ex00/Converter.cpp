@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 18:42:53 by bschende          #+#    #+#             */
-/*   Updated: 2022/10/21 22:54:35 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/22 10:52:19 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Converter::~Converter()
 }
 
 /*Copy Constructor*/
-Converter::Converter(Converter const & src)
+Converter::Converter(Converter const & src) : _input(src._input), _type(src._type)
 {
 	std::cout << "Converter copy constructor called" << std::endl;
 	*this = src;
