@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 10:32:40 by bschende          #+#    #+#             */
-/*   Updated: 2022/10/22 11:41:36 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/22 12:04:05 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ Data	&Data::operator=(Data const &src)
 }
 
 /*reinterprets to uintptr_t*/
-uintptr_t serialize(Data* ptr)
+uintptr_t	serialize(Data* ptr)
 {
 	uintptr_t	raw;
 
@@ -51,7 +51,7 @@ uintptr_t serialize(Data* ptr)
 }
 
 /*reinterprets to data* */
-Data* deserialize(uintptr_t raw)
+Data*	deserialize(uintptr_t raw)
 {
 	Data *ptr;
 
