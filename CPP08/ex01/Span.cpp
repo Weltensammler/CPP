@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 16:57:00 by bschende          #+#    #+#             */
-/*   Updated: 2022/10/23 17:30:25 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/23 17:48:23 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,20 @@ Span	&Span::operator=(Span const &src)
 /*Span Destructor*/
 Span::~Span(void)
 {
-	std::cout << "Span Destructor called" << std::cout;
+	std::cout << "Span Destructor called" << std::endl;
 	delete[] this->_array;
+}
+
+/*adds a Number to the class*/
+void	Span::addNumber(int i)
+{
+	if (this->_count < this->_size)
+		this->_array[this->_count] = i;
+	else
+		throw Span::NoVacancyException();
+}
+
+const char* Span::NoVacancyException::what() const throw()
+{
+	return ("NoVacancyException: No more room");
 }
