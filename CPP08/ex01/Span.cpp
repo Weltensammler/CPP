@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 16:57:00 by bschende          #+#    #+#             */
-/*   Updated: 2022/10/23 22:20:38 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/23 22:45:30 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,22 @@ void	Span::addNumber(int i)
 }
 
 /*finds the shortest span between all the stored ints*/
-// unsigned int	Span::shortestSpan(int array[]) const
-// {
-// 	unsigned int	dist = 0;
+unsigned int	Span::shortestSpan(void) const
+{
+	unsigned int	diff = UINT_MAX;
 
-// 	if (this->_count < 2)
-// 		throw Span::ToFewElementsException();
-// 	return (dist);
-// }
+	if (this->_count < 2)
+		throw Span::ToFewElementsException();
+	std::sort(this->_vector->begin(), this->_vector->end());
+	for (unsigned int i = 0, j = 1; j < _size; i++, j++)
+		{
+			if (static_cast<unsigned int>(this->_vector->at(j) - this->_vector->at(i)) < diff)
+				diff = (this->_vector->at(j) - this->_vector->at(i));
+			std::cout << j << std::endl;
+			std::cout << "ergebnis\t:" << static_cast<unsigned int>(this->_vector->at(j) - this->_vector->at(i)) << std::endl;
+		}
+	return (diff);
+}
 
 /*finds the longest span between all the stored ints*/
 unsigned int	Span::longestSpan(void) const

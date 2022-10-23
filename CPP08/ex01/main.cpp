@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 20:06:07 by bschende          #+#    #+#             */
-/*   Updated: 2022/10/23 22:19:54 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/23 22:46:22 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,17 @@ int	main(void)
 {
 	class Span span(7);
 
-	span.addNumber(5);
+	span.addNumber(90000);
 	span.addNumber(10);
-	span.addNumber(15);
-	span.addNumber(4);
-	span.addNumber(1);
-	span.addNumber(50);
+	span.addNumber(2467);
+	span.addNumber(800);
+	span.addNumber(3000);
+	span.addNumber(588);
 	span.addNumber(30);
 	try
 	{
 		std::cout << span.longestSpan() << std::endl;
+		std::cout << span.shortestSpan() << std::endl;
 	}
 	catch (std::exception const &e)
 	{
