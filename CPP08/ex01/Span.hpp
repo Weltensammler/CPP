@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Data.hpp                                           :+:      :+:    :+:   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/22 10:07:40 by bschende          #+#    #+#             */
-/*   Updated: 2022/10/22 19:13:09 by bschende         ###   ########.fr       */
+/*   Created: 2022/10/23 15:34:44 by bschende          #+#    #+#             */
+/*   Updated: 2022/10/23 17:26:45 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DATA_HPP
-# define DATA_HPP
+#ifndef SPAN_HPP
+# define SPAN_HPP
 
 #include <iostream>
 #include <string>
 
-class Data{
+class Span{
 	private:
-		const std::string	_member;
+						int				*_array;
+						unsigned int	_size;
+						unsigned int	_count;
 	public:
-				Data();
-				Data(Data const &src);
-		Data	&operator=(Data const &src);
-				~Data();
+						Span(void);						//done
+						Span(unsigned int N);			//done
+						Span(Span const &src);			//done
+		Span			&operator=(Span const &src);	//done
+						~Span(void);
+		void			addNumber(int i);
+		unsigned int	shortestSpan(void);
+		unsigned int	longestSpan(void);
 };
-
-uintptr_t serialize(Data* ptr);
-Data* deserialize(uintptr_t raw);
 
 #endif

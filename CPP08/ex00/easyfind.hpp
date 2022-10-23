@@ -1,32 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Data.hpp                                           :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/22 10:07:40 by bschende          #+#    #+#             */
-/*   Updated: 2022/10/22 19:13:09 by bschende         ###   ########.fr       */
+/*   Created: 2022/10/23 11:55:01 by bschende          #+#    #+#             */
+/*   Updated: 2022/10/23 15:27:21 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DATA_HPP
-# define DATA_HPP
+#ifndef EASYFIND_HPP
+# define EASYFIND_HPP
 
 #include <iostream>
 #include <string>
+#include <algorithm>
+#include <list>
+#include <stdexcept>
 
-class Data{
-	private:
-		const std::string	_member;
-	public:
-				Data();
-				Data(Data const &src);
-		Data	&operator=(Data const &src);
-				~Data();
+class NoMatchException : public std::exception
+{
+	virtual const char* what() const throw() {
+		return ("No match found!");
+	};
 };
 
-uintptr_t serialize(Data* ptr);
-Data* deserialize(uintptr_t raw);
+template<typename T>
+void	easyfind(T a, int b)
+{
+	typename T::iterator	p;
+
+	p = std::find(a.begin(), a.end(), b);
+	if (p != a.end() && *p == b)
+		std::cout << *p << std::endl;
+	else
+		throw NoMatchException();
+}
 
 #endif

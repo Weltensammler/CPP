@@ -5,24 +5,39 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/22 10:06:12 by bschende          #+#    #+#             */
-/*   Updated: 2022/10/22 19:14:11 by bschende         ###   ########.fr       */
+/*   Created: 2022/10/23 12:23:33 by bschende          #+#    #+#             */
+/*   Updated: 2022/10/23 15:15:45 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Data.hpp"
+#include "easyfind.hpp"
+
+void	displayInt(int i)
+{
+	std::cout << i << std::endl;
+}
 
 int	main(void)
 {
-	Data	data;
-	Data*	ptr = &data;
-	uintptr_t	ptr1;
+	std::list<int>	lst;
+	// std::list<int>::iterator	p;
 
-	std::cout << ptr << std::endl;
-	ptr1 = serialize(ptr);
-	std::cout << ptr1 << std::endl;
-	ptr = deserialize(ptr1);
-	std::cout << ptr << std::endl;
-	Data	data1(data);
+	lst.push_back(5);
+	lst.push_back(10);
+	lst.push_back(15);
+	lst.push_back(1);
+	lst.push_back(100);
+	lst.push_back(500);
+	lst.push_front(2000);
+	// for_each(lst.begin(), lst.end(), displayInt);
+	// p = std::find(lst.begin(), lst.end(), 100);
+	try
+	{
+		::easyfind(lst, 99);
+	}
+	catch (std::exception const &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 	return (0);
 }
