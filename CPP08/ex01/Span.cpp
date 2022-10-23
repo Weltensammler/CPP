@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 16:57:00 by bschende          #+#    #+#             */
-/*   Updated: 2022/10/23 22:45:30 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/24 00:08:01 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ unsigned int	Span::shortestSpan(void) const
 		{
 			if (static_cast<unsigned int>(this->_vector->at(j) - this->_vector->at(i)) < diff)
 				diff = (this->_vector->at(j) - this->_vector->at(i));
-			std::cout << j << std::endl;
-			std::cout << "ergebnis\t:" << static_cast<unsigned int>(this->_vector->at(j) - this->_vector->at(i)) << std::endl;
+			// std::cout << j << std::endl;
+			// std::cout << "ergebnis\t:" << static_cast<unsigned int>(this->_vector->at(j) - this->_vector->at(i)) << std::endl;
 		}
 	return (diff);
 }
@@ -99,10 +99,24 @@ unsigned int	Span::longestSpan(void) const
 	return (span = max - min);
 }
 
+/*adds n numbers to the array*/
+void	Span::addManyNumbers(unsigned int n)
+{
+	int	array[n];
+
+	if (this->_size < n)
+		throw Span::NoVacancyException();
+	this->_count = n;
+	std::srand((unsigned)time(NULL));
+	for(unsigned int i = 0; i < n; i++)
+		array[i] = 0 + (std::rand() % INT_MAX);
+	this->_vector->assign(array, array + n);
+}
+
 /*User defined exception*/
 const char* Span::NoVacancyException::what() const throw()
 {
-	return ("NoVacancyException: No more room");
+	return ("NoVacancyException: Not enough room");
 }
 
 /*Another user defined exception*/

@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 15:34:44 by bschende          #+#    #+#             */
-/*   Updated: 2022/10/23 22:46:44 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/23 23:28:00 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class Span{
 		Span			&operator=(Span const &src);			//done
 						~Span(void);							//done
 		void			addNumber(int i);						//done
+		void			addManyNumbers(unsigned int n);			
 		unsigned int	shortestSpan(void) const;				//done
 		unsigned int	longestSpan(void) const;				//done
 		class NoVacancyException : public std::exception		//done
