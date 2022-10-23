@@ -6,25 +6,18 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 16:57:00 by bschende          #+#    #+#             */
-/*   Updated: 2022/10/23 17:48:23 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/23 22:20:38 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
 /*Span Default Constructor*/
-Span::Span(void) : _array(NULL), _size(0), _count(0)
-{
-	std::cout << "Span Default Constructor called" << std::endl;
-	return ;
-}
-
-/*Span Default Constructor*/
 Span::Span(unsigned int N) : _count(0)
 {
 	std::cout << "Span named Constructor called" << std::endl;
 	this->_size = N;
-	this->_array = new int[N];
+	this->_vector = new std::vector<int>(N);
 	return ;
 }
 
@@ -34,9 +27,9 @@ Span::Span(Span const &src)
 	std::cout << "Span copy Constructor called" << std::endl;
 	this->_size = src._size;
 	this->_count = src._count;
-	this->_array = new int[src._size];
+	this->_vector = new std::vector<int>(src._size);
 	for (unsigned int i = 0; i < this->_count; i++)
-		this->_array[i] = src._array[i];
+		this->_vector->at(i) = src._vector->at(i);
 	return ;
 }
 
@@ -46,11 +39,11 @@ Span	&Span::operator=(Span const &src)
 	std::cout << "Span copy assignment operator called" << std::endl;
 	this->_size = src._size;
 	this->_count = src._count;
-	if (this->_array != NULL)
-		delete[] this->_array;
-	this->_array = new int[src._size];
+	if (this->_vector != NULL)
+		delete this->_vector;
+	this->_vector = new std::vector<int>(src._size);
 	for (unsigned int i = 0; i < this->_count; i++)
-		this->_array[i] = src._array[i];
+		this->_vector->at(i) = src._vector->at(i);
 	return (*this);
 }
 
@@ -58,19 +51,54 @@ Span	&Span::operator=(Span const &src)
 Span::~Span(void)
 {
 	std::cout << "Span Destructor called" << std::endl;
-	delete[] this->_array;
+	delete this->_vector;
 }
 
 /*adds a Number to the class*/
 void	Span::addNumber(int i)
 {
 	if (this->_count < this->_size)
-		this->_array[this->_count] = i;
+	{
+		this->_vector->at(this->_count) = i;
+		this->_count++;
+	}
 	else
 		throw Span::NoVacancyException();
 }
 
+/*finds the shortest span between all the stored ints*/
+// unsigned int	Span::shortestSpan(int array[]) const
+// {
+// 	unsigned int	dist = 0;
+
+// 	if (this->_count < 2)
+// 		throw Span::ToFewElementsException();
+// 	return (dist);
+// }
+
+/*finds the longest span between all the stored ints*/
+unsigned int	Span::longestSpan(void) const
+{
+	unsigned int	span = 0;
+
+	// for (unsigned int i = 0; i < _size; i++)
+	// 	std::cout << this->_vector->at(i) << std::endl;
+	if (this->_count < 2)
+		throw Span::ToFewElementsException();
+	int max = *std::max_element(this->_vector->begin(), this->_vector->end());
+	int min = *std::min_element(this->_vector->begin(), this->_vector->end());
+	// std::cout << min << "   " << max << std::endl;
+	return (span = max - min);
+}
+
+/*User defined exception*/
 const char* Span::NoVacancyException::what() const throw()
 {
 	return ("NoVacancyException: No more room");
+}
+
+/*Another user defined exception*/
+const char* Span::ToFewElementsException::what() const throw()
+{
+	return ("ToFewElementsException: Less then two numbers stored");
 }

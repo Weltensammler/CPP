@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 12:23:33 by bschende          #+#    #+#             */
-/*   Updated: 2022/10/23 15:15:45 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/23 18:24:39 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(void)
 	// p = std::find(lst.begin(), lst.end(), 100);
 	try
 	{
-		::easyfind(lst, 99);
+		easyfind(lst, 100);
 	}
 	catch (std::exception const &e)
 	{

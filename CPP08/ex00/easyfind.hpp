@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 11:55:01 by bschende          #+#    #+#             */
-/*   Updated: 2022/10/23 15:27:21 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/23 18:26:46 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class NoMatchException : public std::exception
 };
 
 template<typename T>
-void	easyfind(T a, int b)
+void	easyfind(T &a, int b)
 {
 	typename T::iterator	p;
 
