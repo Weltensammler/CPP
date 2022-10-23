@@ -6,7 +6,7 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 21:40:23 by bschende          #+#    #+#             */
-/*   Updated: 2022/10/22 23:33:38 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/23 11:23:08 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,36 +24,39 @@ class	Array{
 	public:
 		Array()
 		{
-			_size = 0;
-			_array = NULL;
+			this->_size = 0;
+			this->_array = NULL;
 			return ;
 		};
 		Array(unsigned int n)
 		{
 			_size = n;
-			_array = new T[n];
+			this->_array = new T[_size];
 			return ;
 		};
 		Array(const Array &src)
 		{
 			this->_size = src._size;
 			this->_array = new T[_size];
-			(*this->_array) = (*src._array);
-			*this = src;
+			for (unsigned int i = 0; i < this->_size; i++)
+				this->_array[i] = src._array[i];
 			return ;
 		};
 		Array	&operator=(Array const &src)
 		{
 			this->_size = src._size;
+			if (this->_array != NULL)
+				delete[] this->_array;;
 			this->_array = new T[_size];
-			*(this->_array) = *(src._array);
+			for (unsigned int i = 0; i < this->_size; i++)
+				this->_array[i] = src._array[i];
 			return (*this);
 		};
 		T		&operator[](int index)
 		{
 			if (index < 0 || static_cast<size_t>(index) >= _size)
 				throw OutOfRangeException();
-			return(_array[index]);
+			return(this->_array[index]);
 		}
 		T		&operator[](int index) const
 		{
@@ -63,7 +66,7 @@ class	Array{
 		}
 		~Array()
 		{
-			delete _array;
+			delete[] this->_array;
 			return ;
 		};
 		unsigned int size(void) const
@@ -79,7 +82,7 @@ class	Array{
 template<class T>
 const char* Array<T>::OutOfRangeException::what() const throw()
 {
-	return("index is ousite of the size!");
+	return("index is out of range!");
 }
 
 #endif

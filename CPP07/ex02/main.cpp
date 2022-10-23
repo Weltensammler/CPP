@@ -6,14 +6,12 @@
 /*   By: bschende <bschende@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 21:36:29 by bschende          #+#    #+#             */
-/*   Updated: 2022/10/22 23:37:18 by bschende         ###   ########.fr       */
+/*   Updated: 2022/10/23 10:35:14 by bschende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cstdlib>
 #include <iostream>
 #include "Array.hpp"
-
 #define DEFAULT "\033[39m"
 #define BLACK "\033[30m"
 #define GREY "\033[90m"
@@ -25,26 +23,28 @@
 #define MAGENTA "\033[35m"
 #define MAX_VAL 10
 int main(int, char**) {
-  std::cout << GREEN << "----- project main.cpp (modified with output) ----- "
+	std::cout << GREEN << "----- project main.cpp (modified with output) ----- "
             << std::endl
             << std::endl;
   Array<int> numbers(MAX_VAL);
   int* mirror = new int[MAX_VAL];
   srand(time(NULL));
-  for (int i = 0; i < MAX_VAL; i++) {
+  for (int i = 0; i < MAX_VAL; i++)
+  {
     numbers[i] = i;
     mirror[i] = i;
   }
   // SCOPE
-  {
+  // {
     Array<int> tmp = numbers;
     Array<int> test(tmp);
-    for (int i = 0; i < (int)numbers.size(); i++) {
+    for (int i = 0; i < (int)numbers.size(); i++)
+    {
       std::cout << "Index: " << i << ", numbers: " << numbers[i]
                 << ", mirror: " << mirror[i] << ", tmp: " << tmp[i]
                 << ", test: " << test[i] << std::endl;
     }
-  }
+  // }
 
   for (int i = 0; i < MAX_VAL; i++) {
     if (mirror[i] != numbers[i]) {
